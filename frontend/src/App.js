@@ -1,27 +1,53 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 // Actions
-// import { simpleAction } from './actions/simpleAction';
+import allActions from './actions'
+// Components
+import NavigationBar from './components/NavigationBar'
+import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 // Pages
-// import Home from './pages/Home'
 
-const simpleAction = () => ({ type: 'SIMPLE_ACTION' })
 
-export const App = () => {
-  const result = useSelector(
-    state => state.result
-    );
-  const dispatch = useDispatch();
+const App = () => {
+  // const counter = useSelector(state => state.counter)
+  // const currentUser = useSelector(state => state.currentUser)
 
+  // const dispatch = useDispatch()
+
+  // const user = {name: "Rei"}
+
+  // useEffect(() => {
+  //   dispatch(allActions.userActions.setUser(user))
+  // }, [])
 
   return (
-    <div>
-      <pre>
-        { result }
-        </pre>
-      <button onClick={() => dispatch(simpleAction())}>Test redux action</button>
-    </div>
-  )
+    <Router>
+      <div className="App">
+        <NavigationBar />
+        <h1>This is my home page!</h1>
+        <SignUp />  
+        <Login />
+        {/* {
+          currentUser.loggedIn ? 
+          <>
+            <h1>Hello, {currentUser.user.name}</h1>
+            <button onClick={() => dispatch(allActions.userActions.logOut())}>Logout</button>
+          </> 
+          : 
+          <>
+            <h1>Login</h1>
+            <button onClick={() => dispatch(allActions.userActions.setUser(user))}>Login as Rei</button>
+          </>
+          }
+        <h1>Counter: {counter}</h1>
+        <button onClick={() => dispatch(allActions.counterActions.increment())}>Increase Counter</button>
+        <button onClick={() => dispatch(allActions.counterActions.decrement())}>Decrease Counter</button> */}
+      </div>
+    </Router>
+
+  );
 }
 
-export default App();
+export default App;
