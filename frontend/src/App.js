@@ -5,8 +5,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import allActions from './actions'
 // Components
 import NavigationBar from './components/NavigationBar'
+import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
+
 // Pages
 
 
@@ -26,9 +28,11 @@ const App = () => {
     <Router>
       <div className="App">
         <NavigationBar />
-        <h1>This is my home page!</h1>
-        <SignUp />  
-        <Login />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/sign-up" component={SignUp} />
+          <Route exact path="/login" component={Login} />
+        </Switch>
         {/* {
           currentUser.loggedIn ? 
           <>

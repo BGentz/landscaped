@@ -7,9 +7,9 @@ const signUp = (user) => ({
   payload: user
 })
 
-const thunkedSignUp = (userObj) =>     // action creator, when invoked…
-  dispatch =>                  // …returns thunk; when invoked with `dispatch`…
-    axios.post(`${backendAPI}customers/`, userObj)  // …performs the actual effect.
+const thunkedSignUp = (userObj) =>     
+  dispatch =>                 
+    axios.post(`${backendAPI}customers/`, userObj) 
     .then(res => res.data)
     .then(user => {
       dispatch(signUp(user))

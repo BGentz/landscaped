@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import allActions from '../actions'
 // Styling
 import { Button, Col, Form } from 'react-bootstrap';
+// Helpers
+import states from '../helpers/states';
 
 const SignUp = () => {
 
@@ -26,7 +28,6 @@ const SignUp = () => {
     console.log(userObj)
     dispatch(allActions.loginActions.thunkedSignUp(userObj))
   }
-
 
   return (
     <>
@@ -81,7 +82,9 @@ const SignUp = () => {
             <Form.Label>State</Form.Label>
             <Form.Control as="select" defaultValue="Choose...">
               <option>Choose...</option>
-              <option>...</option>
+              {Object.values(states).map((state, index) => (
+                <option key={index}>{ state }</option>
+              ))}
             </Form.Control>
           </Form.Group>
 

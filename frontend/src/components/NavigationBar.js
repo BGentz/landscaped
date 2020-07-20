@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 //  import { useDispatch, useSelector } from "react-redux";
 // Styling
 import { Nav, Navbar } from 'react-bootstrap';
@@ -7,10 +8,16 @@ const NavigationBar = () => {
   return (
     <>
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">Landscaped</Navbar.Brand>
+      <Link to="/">
+        <Navbar.Brand>Landscaped</Navbar.Brand>
+      </Link>
       <Nav className="mr-auto">
-        <Nav.Link href="#login">Log In</Nav.Link>
-        <Nav.Link href="#signup">Sign Up</Nav.Link>
+        <Link to="/login">
+          <li>Login</li>
+        </Link>
+        <Link to="/sign-up">
+          <li>Sign Up</li>
+        </Link>
       </Nav>
     </Navbar>
     </>
