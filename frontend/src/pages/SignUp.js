@@ -13,19 +13,20 @@ const SignUp = () => {
     event.preventDefault();
     event.persist()
     let userObj = {}
-    userObj['firstName'] = event.target[0].value
-    userObj['lastName'] = event.target[1].value
+    userObj['first_name'] = event.target[0].value
+    userObj['last_name'] = event.target[1].value
     userObj['email'] = event.target[2].value
-    userObj['phoneNumber'] = event.target[3].value
+    userObj['phone_number'] = event.target[3].value
     userObj['password'] = event.target[4].value
-    userObj['address1'] = event.target[5].value
-    userObj['address2'] = event.target[6].value
+    userObj['address_1'] = event.target[5].value
+    userObj['address_2'] = event.target[6].value
     userObj['city'] = event.target[7].value
     userObj['state'] = event.target[8].value
-    userObj['zipCode'] = event.target[9].value
-    // console.log(userObj)
-    dispatch(allActions.loginActions.signUp(userObj))
+    userObj['zip_code'] = event.target[9].value
+    console.log(userObj)
+    dispatch(allActions.loginActions.thunkedSignUp(userObj))
   }
+
 
   return (
     <>
@@ -89,10 +90,6 @@ const SignUp = () => {
             <Form.Control />
           </Form.Group>
         </Form.Row>
-
-        <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
 
         <Button variant="primary" type="submit">
           Submit
