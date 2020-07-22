@@ -10,8 +10,8 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=255)
     middle_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=20, blank=True)
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=20, blank=True, unique=True)
     password = models.CharField(max_length=255)
     address_1 = models.CharField(max_length=255, blank=True)
     address_2 = models.CharField(max_length=255, blank=True)
@@ -25,8 +25,8 @@ class Customer(models.Model):
 
 class Company(models.Model):
     name = models.CharField(max_length=255)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=20, blank=True)
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=20, blank=True, unique=True)
     password = models.CharField(max_length=255)
     address_1 = models.CharField(max_length=255, blank=True)
     address_2 = models.CharField(max_length=255, blank=True)
