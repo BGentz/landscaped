@@ -2,10 +2,15 @@ from .models import Customer, Company
 from .serializers import CustomerSerializer, CompanySerializer
 from rest_framework import viewsets, permissions
 
+# Customer ViewSet
+"""
+"""
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
     serializer_class = CustomerSerializer
-    # permission_classes = (permissions.IsAuthenticatedOrReadOnly)
 
 # class CustomerDetails(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = Customer.objects.all()
@@ -13,8 +18,8 @@ class CustomerViewSet(viewsets.ModelViewSet):
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly)
     serializer_class = CompanySerializer
-    # permission_classes = (permissions.IsAuthenticatedOrReadOnly)
 
 
 # class CompanyDetails(generics.RetrieveUpdateDestroyAPIView):
