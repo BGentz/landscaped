@@ -1,16 +1,15 @@
-import React, {useEffect} from 'react'
-import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 // Actions
-import allActions from './actions'
+import allActions from "./actions"
 // Components
-import NavigationBar from './components/NavigationBar'
-import Home from './pages/Home';
-import SignUp from './pages/SignUp';
-import Login from './pages/Login';
+import NavigationBar from "./pages/NavigationBar"
+import Home from "./pages/Home"
+import SignUp from "./pages/SignUp"
+import Login from "./pages/Login"
 
 // Pages
-
 
 const App = () => {
   // const counter = useSelector(state => state.counter)
@@ -50,8 +49,7 @@ const App = () => {
         <button onClick={() => dispatch(allActions.counterActions.decrement())}>Decrease Counter</button> */}
       </div>
     </Router>
-
-  );
+  )
 }
 
-export default App;
+export default App
